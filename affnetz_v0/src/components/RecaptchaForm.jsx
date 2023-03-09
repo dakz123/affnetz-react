@@ -25,6 +25,10 @@ const Form = () => {
     console.log("Captcha value:", value);
     setVerified(true);
   }
+  var expCallback = function() {
+    setVerified(false);
+ };
+  
   return (
     <Grid>
       <Paper elevation={10} style={paperStyle}>
@@ -49,11 +53,13 @@ const Form = () => {
        
         
         <ReCAPTCHA
-          sitekey="6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"
+          sitekey="6LfAo-ckAAAAACN2YNppEKemA_QPaMFTF9IDhDA-"
           onChange={onChange}
           data-theme="dark"
           align="right"
           style={recaptchastyle}
+          onExpired={expCallback}
+          onErrored={expCallback}
           //size="invisible"
           
         />
